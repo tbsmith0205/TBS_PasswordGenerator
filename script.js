@@ -93,12 +93,18 @@ var specialChars = [
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 function generatePassword() {
-  var password = " ";
+  var passwordConstruction = " ";
   var passwordChars = " ";
 
   var userInputLength = prompt(
     "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
   );
+
+  while (userInputLength < 8 || userInputLength > 128) {
+    alert("Password must be between 8 and 128 characters.");
+    userInputLength();
+  }
+
   // userInputLength =
 
   var userInputLowercase = confirm(
@@ -116,6 +122,17 @@ function generatePassword() {
   var userInputNumbers = confirm(
     "Would you like to include numbers in your password?"
   );
+
+  if (
+    userInputLowercase === false &&
+    userInputUppercase === false &&
+    userInputSpecialChars === false &&
+    userInputNumbers === false
+  ) {
+    alert(
+      "Note: You must choose have at least one of lowercase letters, uppercase letters, special characters, or numbers selected to generate a password."
+    );
+  }
 }
 
 // Assignment Code
