@@ -99,6 +99,7 @@ function generatePassword() {
   var userInputLength = prompt(
     "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
   );
+  // userInputLength =
 }
 
 // Assignment Code
