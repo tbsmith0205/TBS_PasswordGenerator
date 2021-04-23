@@ -92,11 +92,11 @@ var specialChars = [
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
+//array for answers to question below to be stored in
 var finalPW = [];
 
 function generatePassword() {
   var passwordConstruction = "";
-  var passwordAdd = "";
 
   var userInputLength = parseInt(
     prompt(
