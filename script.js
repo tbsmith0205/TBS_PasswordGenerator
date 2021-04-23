@@ -100,6 +100,22 @@ function generatePassword() {
     "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
   );
   // userInputLength =
+
+  var userInputLowercase = confirm(
+    "Would you like to have lowercase letters in your password?"
+  );
+
+  var userInputUppercase = confirm(
+    "Would you like to have uppercase letters in your password?"
+  );
+
+  var userInputSpecialChars = confirm(
+    "Would you like to include special characters in your password?"
+  );
+
+  var userInputNumbers = confirm(
+    "Would you like to include numbers in your password?"
+  );
 }
 
 // Assignment Code
