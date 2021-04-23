@@ -92,12 +92,16 @@ var specialChars = [
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-function generatePassword() {
-  var passwordConstruction = " ";
-  var passwordAdd = " ";
+var finalPW = [];
 
-  var userInputLength = prompt(
-    "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
+function generatePassword() {
+  var passwordConstruction = "";
+  var passwordAdd = "";
+
+  var userInputLength = parseInt(
+    prompt(
+      "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
+    )
   );
 
   while (userInputLength < 8 || userInputLength > 128) {
@@ -111,28 +115,28 @@ function generatePassword() {
     "Would you like to have lowercase letters in your password?"
   );
 
-  if ((userInputLowercase = true)) {
-    passwordAdd += lowerCase;
+  if (userInputLowercase === true) {
+    finalPW.push(lowerCase);
   }
 
   var userInputUppercase = confirm(
     "Would you like to have uppercase letters in your password?"
   );
-  if ((userInputUppercase = true)) {
-    passwordAdd += upperCase;
+  if (userInputUppercase === true) {
+    finalPW.push(upperCase);
   }
   var userInputSpecialChars = confirm(
     "Would you like to include special characters in your password?"
   );
-  if ((userInputSpecialChars = true)) {
-    passwordAdd += specialChars;
+  if (userInputSpecialChars === true) {
+    finalPW.push(specialChars);
   }
 
   var userInputNumbers = confirm(
     "Would you like to include numbers in your password?"
   );
-  if ((userInputNumbers = true)) {
-    passwordAdd += numbers;
+  if (userInputNumbers === true) {
+    finalPW.push(numbers);
   }
 
   if (
@@ -144,6 +148,10 @@ function generatePassword() {
     alert(
       "Note: You must choose have at least one of lowercase letters, uppercase letters, special characters, or numbers selected to generate a password."
     );
+  }
+
+  for (var i = 0; i < userInputLength; i++) {
+    passwordConstruction = finalPW[Math.floor(Math.random() * finalPW.length)];
   }
 }
 
