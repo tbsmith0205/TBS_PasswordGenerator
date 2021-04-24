@@ -110,11 +110,12 @@ function generatePassword() {
   }
 
   // userInputLength =
-
+  // boolean value stored
   var userInputLowercase = confirm(
     "Would you like to have lowercase letters in your password?"
   );
 
+  // if they want lower case characters they will be put into an array to be used later on for calculation of password
   if (userInputLowercase === true) {
     finalPW.push(lowerCase);
   }
