@@ -92,13 +92,7 @@ var specialChars = [
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-//array for answers to question below to be stored in
-// var finalPW = {
-//   upperCase: false,
-//   lowerCase: false,
-//   specialChars: false,
-//   numbers: false,
-// };
+//array to store all of the characters the user wants to include
 var finalPW = [];
 
 function generatePassword() {
@@ -110,16 +104,20 @@ function generatePassword() {
 
   while (userInputLength < 8 || userInputLength > 128) {
     alert("Password must be between 8 and 128 characters.");
-    userInputLength();
+    // returns user to prompt to select how many characters they want
+    userInputLength = parseInt(
+      prompt(
+        "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
+      )
+    );
   }
 
-  // userInputLength =
   // boolean value stored
   var userInputLowercase = confirm(
     "Would you like to have lowercase letters in your password?"
   );
 
-  // if they want lower case characters they will be put into an array to be used later on for calculation of password
+  // if they want lower case characters it concats the lowercase array to the array of password characters (finalPW)
   if (userInputLowercase === true) {
     finalPW = finalPW.concat(lowerCase);
   }
@@ -155,13 +153,17 @@ function generatePassword() {
     );
   }
 
+  // holds the randomly chosen characters for password generation
   var passwordConstruction = [];
 
+  // for loop accessing finalPW array and using math.floor to generate a random number on that index
   for (var i = 0; i < userInputLength; i++) {
     var ranChar = finalPW[Math.floor(Math.random() * finalPW.length)];
+    // adding the argument above to the passwordConstruction array
     passwordConstruction.push(ranChar);
   }
 
+  // returns the randomly generated password
   return passwordConstruction.join("");
 }
 
