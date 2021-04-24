@@ -93,6 +93,12 @@ var specialChars = [
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 //array for answers to question below to be stored in
+// var finalPW = {
+//   upperCase: false,
+//   lowerCase: false,
+//   specialChars: false,
+//   numbers: false,
+// };
 var finalPW = [];
 
 function generatePassword() {
@@ -115,27 +121,27 @@ function generatePassword() {
 
   // if they want lower case characters they will be put into an array to be used later on for calculation of password
   if (userInputLowercase === true) {
-    finalPW.push(lowerCase);
+    finalPW = finalPW.concat(lowerCase);
   }
 
   var userInputUppercase = confirm(
     "Would you like to have uppercase letters in your password?"
   );
   if (userInputUppercase === true) {
-    finalPW.push(upperCase);
+    finalPW = finalPW.concat(upperCase);
   }
   var userInputSpecialChars = confirm(
     "Would you like to include special characters in your password?"
   );
   if (userInputSpecialChars === true) {
-    finalPW.push(specialChars);
+    finalPW = finalPW.concat(specialChars);
   }
 
   var userInputNumbers = confirm(
     "Would you like to include numbers in your password?"
   );
   if (userInputNumbers === true) {
-    finalPW.push(numbers);
+    finalPW = finalPW.concat(numbers);
   }
 
   if (
@@ -149,10 +155,14 @@ function generatePassword() {
     );
   }
 
+  var passwordConstruction = [];
+
   for (var i = 0; i < userInputLength; i++) {
-    var passwordConstruction =
-      finalPW[Math.floor(Math.random() * finalPW.length)];
+    var ranChar = finalPW[Math.floor(Math.random() * finalPW.length)];
+    passwordConstruction.push(ranChar);
   }
+
+  return passwordConstruction.join("");
 }
 
 // Assignment Code
