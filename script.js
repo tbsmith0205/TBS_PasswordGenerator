@@ -96,8 +96,6 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var finalPW = [];
 
 function generatePassword() {
-  var passwordConstruction = "";
-
   var userInputLength = parseInt(
     prompt(
       "How many characters would you like your password to have? Note: Password must contain between 8 and 128 characters"
@@ -152,7 +150,8 @@ function generatePassword() {
   }
 
   for (var i = 0; i < userInputLength; i++) {
-    passwordConstruction = finalPW[Math.floor(Math.random() * finalPW.length)];
+    var passwordConstruction =
+      finalPW[Math.floor(Math.random() * finalPW.length)];
   }
 }
 
